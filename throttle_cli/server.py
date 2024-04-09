@@ -12,6 +12,7 @@ from . import loglib
 from .commandworker import CommandWorker
 from .structures import Msg
 
+multiprocessing.set_start_method("fork")
 
 def ipcworker(socketpath: Path, handleMsg: Callable, handleInfo: Callable) -> None:
     socketpath.parent.mkdir(parents=True, exist_ok=True)
